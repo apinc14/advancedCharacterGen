@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <style>
+        body {
+            width: 500px;
+            font-family: Arial Unicode MS, sans-serif;
+            /* Add background image */
+            background-image: url('/images/deer in nature calming ambient nature photo - Omniicore automation.jpg');
+            /* Set background size */
+            background-size: cover;
+            /* Set background repeat */
+            background-repeat: no-repeat;
+            /* Center the background */
+            background-position: center;
+           
+        }
+        
+        
+        button {
+            background-color: #336dab;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            font-size: 16px;
+        }
+        
+
+        .s-container {
+            display: flow;
+            align-items: flex-end;
+            justify-content: flex-start; /* Align items vertically */
+            background-color: darkolivegreen;
+            border-radius:8px;
+            opacity: .84;
+          
+         
+           
+        }
+
+        .b-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .c-container {
+            display: flow;
+            justify-content: start;
+            padding-bottom: 2px;
+            padding-top: 2px;
+            padding-inline-start: 5px;
+
+        }
+        .a-container, .b-container{
+            padding: 5px; /* Adjust the padding value as needed */
+        }
+        .t-container {
+            padding-bottom: 1px;
+            padding-inline-start: 3px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            background-color: black;
+            color: white;
+        }
+        .i-container {
+            display: flex;
+        }
+        .bo-container {
+            padding-inline-start:3px;
+            border: 2px solid black; /* Sets the border to 2 pixels wide, solid, and black */
+
+            background-color: white;
+            margin: 2px;
+            color: black;
+        }
+        .c {
+            border: 2px solid black; /* Sets the border to 2 pixels wide, solid, and black */
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="s-container">
+        <div class="t-container">
+            <h2 id="title">Omniicore Password Generator</h2>
+        </div>
+        
+
+        <div class="c-container">
+            <div class="bo-container">
+                <p id="getChars"></p>
+               
+            </div>
+                <div class="i-container">
+
+                    <p>Length:</p>
+                    <input class ="c"type="text" id="slider" value="25" pattern="[0-9]*">
+                </div>
+            </div>
+        </div>
+
+        <div class="b-container">
+            <button id="copy">Copy</button>
+            <button id="refresh">refresh</button>
+            <button id="donateButton">Donate</button>
+        </div>
+        <!-- Placeholder element for displaying the getChars -->
+        <!-- Placeholder element for displaying the count -->
+        <!-- Script import statement moved outside of DOMContentLoaded event listener -->
+        <script src="popup.js"></script>
+</body>
+</html>
