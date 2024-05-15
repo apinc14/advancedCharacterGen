@@ -5,7 +5,8 @@ const getChars = document.getElementById("getChars");
 const languages = document.getElementById("languages");
 const countElement = document.getElementById("count");
 const refreshButton = document.getElementById("refresh");
-const error = document.getElementById("error");
+const donate = document.getElementById("donate");
+
 const characterRanges = [
 
     // Japanese
@@ -132,8 +133,8 @@ function copyToClipboard(text) {
 }
 function getRandomSpecialCharacters(length, characterRanges) {
     let pass = '';
-    let language = '';
-    let count = 0; // Initialize count to 0
+    
+   
     try {
       
         for (let j = 0; j < length; j++) {
@@ -159,7 +160,7 @@ function getRandomSpecialCharacters(length, characterRanges) {
             pass += String.fromCharCode(randomCharCode);
 
             // Increment the count for each character generated
-            count++;
+           
         }
     } catch (error) {
         console.error("An error occurred:", error.message);
@@ -169,7 +170,7 @@ function getRandomSpecialCharacters(length, characterRanges) {
         console.log("This block always runs");
     }
 
-    return { pass, language, count };
+    return  pass;
 }
 
 
@@ -191,10 +192,9 @@ function isValidCharacter(charCode) {
 
 
 // Function to update the generated characters, language, and count
-function updateUI(generatedCharacter, language, count) {
+function updateUI(generatedCharacter) {
     getChars.textContent = generatedCharacter;
-    languages.textContent = language;
-    countElement.textContent = count;
+  
 }
 
 // Event listener for copy button
@@ -205,7 +205,7 @@ copyButton.addEventListener('click', () => {
 
 // Event listener for the slider change event
 slider.addEventListener('change', () => {
-    const { pass: generatedCharacter, language, count } = getRandomSpecialCharacters(parseInt(slider.value), characterRanges);
+    const { pass: generatedCharacter} = getRandomSpecialCharacters(parseInt(slider.value), characterRanges);
     updateUI(generatedCharacter, language, count);
 }, true);
 
@@ -216,9 +216,19 @@ refreshButton.addEventListener('click', () => {
 
 // Update the refresh function to call the getRandomSpecialCharacters function and update the UI
 function refresh() {
-    const { pass: generatedCharacter, language, count } = getRandomSpecialCharacters(parseInt(slider.value), characterRanges);
-    updateUI(generatedCharacter, language, count);
+    const  generatedCharacter = getRandomSpecialCharacters(parseInt(slider.value), characterRanges);
+    updateUI(generatedCharacter);
 }
 // Initial call to populate the generated characters, language, and count
-const { pass: initialGeneratedCharacter, language: initialLanguage, count: initialCount } = getRandomSpecialCharacters(parseInt(slider.value), characterRanges);
-updateUI(initialGeneratedCharacter, initialLanguage, initialCount);
+const  initialGeneratedCharacter  = getRandomSpecialCharacters(parseInt(slider.value), characterRanges);
+updateUI(initialGeneratedCharacter);
+
+
+donate.addEventListener('click', async () => {
+    
+    const donationLink = 'https://buy.stripe.com/dR67sSfP8gW24yA5kv';
+
+    // Open the donation link in a new tab
+    window.open(donationLink, '_blank');
+});
+const stripe = Stripe("pk_live_51OmnSzLY3w7bHxSph7DKHN85srxOkdvyLtvxszhuBc3PUV7ojMU5ZltC3pVnQcFpsSRvXRKJsMPwxf1Wr9W7TIvb00kfl94Ua9");
