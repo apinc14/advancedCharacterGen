@@ -63,9 +63,7 @@ const characterRanges = [
     // Gurmukhi
     { 'Gurmukhi': { start: 0x0A00, end: 0x0A7F } },
 
-    // Quechua
-    { 'Quechua': { start: 0x0510, end: 0x052F } },
-
+    
     // Romanian
     { 'Romanian': { start: 0x0100, end: 0x017F } },
 
@@ -206,7 +204,7 @@ copyButton.addEventListener('click', () => {
 // Event listener for the slider change event
 slider.addEventListener('change', () => {
     const { pass: generatedCharacter} = getRandomSpecialCharacters(parseInt(slider.value), characterRanges);
-    updateUI(generatedCharacter, language, count);
+    updateUI(generatedCharacter);
 }, true);
 
 // Event listener for the refreshButton click event
@@ -231,4 +229,3 @@ donate.addEventListener('click', async () => {
     // Open the donation link in a new tab
     window.open(donationLink, '_blank');
 });
-const stripe = Stripe("pk_live_51OmnSzLY3w7bHxSph7DKHN85srxOkdvyLtvxszhuBc3PUV7ojMU5ZltC3pVnQcFpsSRvXRKJsMPwxf1Wr9W7TIvb00kfl94Ua9");
